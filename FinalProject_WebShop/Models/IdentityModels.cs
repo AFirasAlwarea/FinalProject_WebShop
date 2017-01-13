@@ -3,6 +3,9 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FinalProject_WebShop.Models
 {
@@ -16,6 +19,22 @@ namespace FinalProject_WebShop.Models
             // Add custom user claims here
             return userIdentity;
         }
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        public string? Gender { get; set; }
+        public string Telephone { get; set; }
+        [StringLength(100)]
+        public string StreetAddress { get; set; }
+        [StringLength(50)]
+        public string City { get; set; }
+        []
+        public int PostalCode { get; set; }
+        public string Country { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public virtual List<Order> OrdersList { get; set; }
+        public bool BuyerOrSeller { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
