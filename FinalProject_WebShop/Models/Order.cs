@@ -11,7 +11,8 @@ namespace FinalProject_WebShop.Models
         public int Id { get; set; }
         [DisplayName("Date of Order")]
         public DateTime OrderDate { get; set; }
+        [DisplayName("Customer")]
         public int CustomerId { get; set; }
-        public List<Product> ProductsList { get; set; }
+        public virtual List<OrderRow> OrderRow { get; set; }
     }
 }

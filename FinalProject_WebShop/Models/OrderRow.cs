@@ -10,8 +10,9 @@ namespace FinalProject_WebShop.Models
     {
         [Key]
         public int Id { get; set; }
-        public Order OrderId { get; set; }
-        public Product ProductId { get; set; }
-        
+        public int OrderId { get; set; }
+        public int ProductId { get; set; }
+        public decimal ProductPrice { get; set; }
+
     }
 }
