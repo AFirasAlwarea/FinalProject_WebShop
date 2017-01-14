@@ -20,6 +20,11 @@ namespace FinalProject_WebShop.Controllers
             return View(db.Product.ToList());
         }
 
+        public ActionResult ShowSellerName(string SellerId)
+        {
+            var Seller = db.Users.Where(u => u.Id == SellerId);
+            return PartialView("_SellerName", Seller);
+        }
         // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
@@ -32,6 +37,11 @@ namespace FinalProject_WebShop.Controllers
             {
                 return HttpNotFound();
             }
+            var oneSeller = db.Users.Find(Id == product.SellerId);
+            //var oneSeller = from x in db.Users
+            //                where x.Id == product.SellerId
+            //                select x;
+            ViewBag.SellerName = oneSeller;
             return View(product);
         }
 

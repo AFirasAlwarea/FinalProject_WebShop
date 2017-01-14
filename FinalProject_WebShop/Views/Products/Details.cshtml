@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    var oneSeller = ViewBag.SellerName;
 }
 
 <h2>Details</h2>
@@ -55,7 +56,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SellerId)
+            @oneSeller
+            @*@Html.Action("ShowSellerName", "Products", new { Id = @Model.SellerId })*@
         </dd>
 
         <dt>

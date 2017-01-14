@@ -66,6 +66,8 @@ namespace FinalProject_WebShop.Models
         public DbSet<Product> Product { get; set; }
         public DbSet<Cart> Cart { get; set; }
 
+        //public System.Data.Entity.DbSet<FinalProject_WebShop.Models.ApplicationUser> ApplicationUsers { get; set; }
+
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

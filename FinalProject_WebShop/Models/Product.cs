@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace FinalProject_WebShop.Models
@@ -15,6 +16,7 @@ namespace FinalProject_WebShop.Models
         [Range(1,1000)]
         public int Inventory { get; set; }
         public bool Availability { get; set; }
+        [DisplayName("Seller")]
         public string SellerId { get; set; }
         public ApplicationUser Seller { get; set; }
         public string Photo_URL { get; set; }
