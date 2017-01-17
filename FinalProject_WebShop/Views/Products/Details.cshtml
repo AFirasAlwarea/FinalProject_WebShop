@@ -52,20 +52,17 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SellerId)
+            @Html.DisplayNameFor(model => model.Seller)
         </dt>
-
         <dd>
-            @oneSeller
-            @*@Html.Action("ShowSellerName", "Products", new { Id = @Model.SellerId })*@
+            @Html.DisplayFor(model => model.Seller.FirstName) @Html.DisplayFor(model => model.Seller.LastName) 
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Photo_URL)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Photo_URL)
+            <img src="@Model.Photo_URL"/>
         </dd>
 
     </dl>

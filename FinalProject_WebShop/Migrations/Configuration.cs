@@ -69,7 +69,7 @@ namespace FinalProject_WebShop.Migrations
                     LastName = "Wira",
                     Gender = "Male",
                     Seller = true,
-                    BirthDate = Convert.ToDateTime("25/05/1978"),
+                    BirthDate = Convert.ToDateTime("1978-05-25"),
                     Telephone = "+46 762 62 287",
                     StreetAddress = "Nergårdsvägen 2B",
                     PostalCode = 56030,
@@ -91,7 +91,7 @@ namespace FinalProject_WebShop.Migrations
                     LastName = "Wira",
                     Gender = "Male",
                     Seller = false,
-                    BirthDate = Convert.ToDateTime("15/04/2007"),
+                    BirthDate = Convert.ToDateTime("2007-04-15"),
                     Telephone = "+46 733 55 222",
                     StreetAddress = "Nergårdsvägen 2B",
                     PostalCode = 56030,
@@ -113,7 +113,7 @@ namespace FinalProject_WebShop.Migrations
                     LastName = "Alazem",
                     Gender = "Female",
                     Seller = true,
-                    BirthDate = Convert.ToDateTime("31/03/1991"),
+                    BirthDate = Convert.ToDateTime("1991-03-30"),
                     Telephone = "+971 50 263 7404",
                     StreetAddress = "Zayed The First Street",
                     PostalCode = 56030,
@@ -209,8 +209,11 @@ namespace FinalProject_WebShop.Migrations
             }
             #endregion*/
 
-            #region Adding 10 Products
-            var seller = context.Users.Where(s => s.Email == "kindah.alazem@gmail.com").FirstOrDefault();
+            #region Adding Some Products
+
+            ApplicationUser seller = userManager.FindByEmail("kindah.alazem@gmail.com");
+
+            //ApplicationUser seller = context.Users.Where(s => s.Email == "kindah.alazem@gmail.com").FirstOrDefault();
             context.Product.AddOrUpdate(P => P.Name,
                new Product
                {
@@ -219,9 +222,63 @@ namespace FinalProject_WebShop.Migrations
                    Inventory = 50,
                    Price = 1500,
                    Availability = true,
-                   Seller = seller,
                    SellerId = seller.Id,
                    Photo_URL = "http://img.bluenile.com/is/image/bluenile/-luna-seven-stone-diamond-ring-platinum-/AB30500600_profile?$v2_catprod_lrg$"
+               });
+            context.Product.AddOrUpdate(P => P.Name,
+               new Product
+               {
+                   Name = "Sapphire Ring",
+                   Description = "Expertly crafted in sterling silver, the bold ring showcases a stunning emerald cut blue topaz center stone. A single row of shimmering round created white sapphires separate the additional pear shaped created blue sapphires that grace the ring's high polished shank.",
+                   Inventory = 50,
+                   Price = 79,
+                   Availability = true,
+                   SellerId = seller.Id,
+                   Photo_URL = "http://c.shld.net/rpx/i/s/i/spin/10101982/prod_2338046612?hei=520&wid=520&op_sharpen=1"
+               });
+            context.Product.AddOrUpdate(P => P.Name,
+               new Product
+               {
+                   Name = "10K Yellow Gold Duo Ring",
+                   Description = "Fashioned in 10K yellow gold, this unique design features a clever arrangement of shimmering round diamonds arranged in two round centers . Additional accent diamonds line the ring's twisting shank.",
+                   Inventory = 5,
+                   Price = 399,
+                   Availability = true,
+                   SellerId = seller.Id,
+                   Photo_URL = "http://c.shld.net/rpx/i/s/i/spin/10101982/prod_1986808812?hei=520&wid=520&op_sharpen=1"
+               });
+            context.Product.AddOrUpdate(P => P.Name,
+               new Product
+               {
+                   Name = "Diamnond Ring",
+                   Description = "Featuring shiny 14k yellow gold, these adorable girl's dolphin post earrings are just right for her sweet style.",
+                   Inventory = 5,
+                   Price = 44,
+                   Availability = true,
+                   SellerId = seller.Id,
+                   Photo_URL = "http://c.shld.net/rpx/i/s/i/spin/image/spin_prod_919519912?hei=520&wid=520&op_sharpen=1"
+               });
+            context.Product.AddOrUpdate(P => P.Name,
+               new Product
+               {
+                   Name = "Gold Over silver 1/10CT XO Bracelet",
+                   Description = "A classic 'X' and 'O' design which can be work day or night",
+                   Inventory = 25,
+                   Price = 25,
+                   Availability = true,
+                   SellerId = seller.Id,
+                   Photo_URL = "http://c.shld.net/rpx/i/s/i/spin/10108455/prod_2331128912?hei=520&wid=520&op_sharpen=1"
+               });
+            context.Product.AddOrUpdate(P => P.Name,
+               new Product
+               {
+                   Name = "Pearl Necklace",
+                   Description = "This beautiful simulated pearl necklace features large, lustrous 12mm round shell pearls with high polish sterling silver corrugated ball clasp.",
+                   Inventory = 10,
+                   Price = 249,
+                   Availability = true,
+                   SellerId = seller.Id,
+                   Photo_URL = "http://c.shld.net/rpx/i/s/i/spin/10009231/prod_1395011312?hei=520&wid=520&op_sharpen=1"
                });
             #endregion
 

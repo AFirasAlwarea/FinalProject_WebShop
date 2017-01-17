@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FinalProject_WebShop.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 
 namespace FinalProject_WebShop.Controllers
 {
@@ -37,11 +39,13 @@ namespace FinalProject_WebShop.Controllers
             {
                 return HttpNotFound();
             }
-            var oneSeller = db.Users.Find(Id == product.SellerId);
-            //var oneSeller = from x in db.Users
-            //                where x.Id == product.SellerId
-            //                select x;
+
+            var userStor = new UserStore<ApplicationUser>(db);
+            var UserManager = new UserManager<ApplicationUser>(userStor);
+            ApplicationUser oneSeller = UserManager.FindById(product.SellerId);
+
             ViewBag.SellerName = oneSeller;
+
             return View(product);
         }
 
